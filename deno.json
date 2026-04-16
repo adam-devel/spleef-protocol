@@ -1,0 +1,5 @@
+{
+  "name": "@spleef/protocol",
+  "version": "1.0.0",
+  "exports": "./protocol.d.ts",
+}
