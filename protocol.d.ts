@@ -1,5 +1,5 @@
 export const PORT = 3000;
-export type VERSION_TYPE = "1.0.1";
+export type VERSION_TYPE = "1.0.2";
 
 /** Player joins the game with their display name */
 export type ClientJoin = [version: VERSION_TYPE, type: "JOIN", name: string];
@@ -21,6 +21,9 @@ export type ClientShoot = [version: VERSION_TYPE, type: "AIM", angle: number];
 
 /** A player joined */
 export type ServerPlayerJoined = [version: VERSION_TYPE, id: number, name: string, x: number, y: number];
+
+/** A player left */
+export type ServerPlayerLeft = [version: VERSION_TYPE, id: number];
 
 /** Game starts */
 export type ServerGameStarted = [version: VERSION_TYPE, type: "START"];
@@ -50,5 +53,5 @@ export type ServerGameSync = [
 export type ServerGameOver = [version: VERSION_TYPE, type: "OVER", winnerId: string | null];
 
 export type ClientMessage = ClientJoin | ClientMove | ClientHead | ClientVote | ClientDig
-export type ServerMessage = ServerPlayerJoined | ServerGameSync | ServerGameStarted | ServerGameOver;
+export type ServerMessage = ServerPlayerLeft | ServerPlayerJoined | ServerGameSync | ServerGameStarted | ServerGameOver;
 export type Message = ClientMessage | ServerMessage
